@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sudoku"
+             BackgroundColor="DarkBlue"
+             x:Class="Sudoku.MainPage">
+
+    <!--版面控制-->
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Spacing="20">
+            <Label Text="歡迎挑戰數獨" FontSize="30" TextColor="White"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="挑戰模式"  TextColor="White" BackgroundColor="Black"/>
+            <Button Text="排行榜"  TextColor="White" BackgroundColor="Black"/>
+            <Button Text="離開"  TextColor="White" BackgroundColor="Black"/>
+
+            <Label Text="Ver 1.0" FontSize="20" TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
