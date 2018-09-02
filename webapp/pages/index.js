@@ -2,27 +2,18 @@ import Link from 'next/link'
 
 export default () =>
   <div>
-    Hello world
-    <p>scoped!</p>
-    <Link href="/about">
-      <a>here</a>
-    </Link>
+    <h3>Hello haha world</h3>
+    <center>
+      <Link href="/about">
+        <a>about</a>
+      </Link>
+    </center>
     <style>{`
-      p {
-        color: blue;
+      h3 {
+        text-align:center;
       }
-      div {
-        background: red;
-      }
-      @media (max-width: 600px) {
-        div {
-          background: blue;
-        }
-      }
-    `}</style>
-    <style>{`
       body {
-        background: gray;
+        background-color:#b5d1ff
       }
     `}</style>
   </div>
