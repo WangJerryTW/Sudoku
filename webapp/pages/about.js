@@ -1,4 +1,4 @@
-export default () =>
+export default () => (
   <div>
     <p>
       about your head!<br /><br /><br />
@@ -10,3 +10,4 @@ export default () =>
     }
   `}</style>
   </div>
+)
