@@ -1,7 +1,6 @@
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\bin\Debug\netstandard2.0\Sudoku.deps.json
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\bin\Debug\netstandard2.0\Sudoku.dll
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\bin\Debug\netstandard2.0\Sudoku.pdb
-c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.csprojAssemblyReference.cache
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\App.xaml.g.cs
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.csproj.CoreCompileInputs.cache
@@ -10,3 +9,5 @@ c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\XamlC.stamp
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.dll
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.pdb
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.csprojAssemblyReference.cache
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\SudokuBattle.xaml.g.cs
