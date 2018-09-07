@@ -19,7 +19,7 @@ const Index = (props) => (
           <div>
             <h4>{a.id}</h4>
             <Easylabel tag={a.tag} />
-            <Sudo row={a.row} />
+            <Sudo key={a.id} row={a.row} />
           </div>
         )
       })
@@ -31,6 +31,34 @@ const Index = (props) => (
       }
       h3 {
         text-align:center;
+      }
+      .redb1 {
+        border-top:1px solid red;
+        border-left:1px solid red;
+      }
+      .redb2 {
+        border-top:1px solid red;
+      }
+      .redb3 {
+        border-top:1px solid red;
+        border-right:1px solid red;
+      }
+      .redb4 {
+        border-left:1px solid red;
+      }
+      .redb6 {
+        border-right:1px solid red;
+      }
+      .redb7 {
+        border-bottom:1px solid red;
+        border-left:1px solid red;
+      }
+      .redb8 {
+        border-bottom:1px solid red;
+      }
+      .redb9 {
+        border-bottom:1px solid red;
+        border-right:1px solid red;
       }
       body {
         background-color:#b5d1ff
