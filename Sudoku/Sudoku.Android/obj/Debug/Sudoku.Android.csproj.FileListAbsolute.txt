@@ -99,6 +99,7 @@ C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Android.dll
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\Sudoku.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\Sudoku.Android.dll.mdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

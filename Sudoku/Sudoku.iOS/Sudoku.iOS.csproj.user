@@ -3,5 +3,7 @@
   <PropertyGroup>
     <DeveloperId />
     <DevelopmentTeamId />
+    <SelectedDevice>Live Player</SelectedDevice>
+    <TargetiOSDevice />
   </PropertyGroup>
 </Project>

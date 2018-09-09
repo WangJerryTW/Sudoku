@@ -11,8 +11,8 @@
                    HorizontalTextAlignment="Center"/>
 
             <Button Text="挑戰模式"  TextColor="White" BackgroundColor="Black" Clicked="ChallangeMode_Clicked"/>
-            <Button Text="排行榜"  TextColor="White" BackgroundColor="Black"/>
-            <Button Text="離開"  TextColor="White" BackgroundColor="Black"/>
+            <Button Text="排行榜(尚未開放)"  TextColor="White" BackgroundColor="Black"/>
+            <Button Text="離開(尚未開放)"  TextColor="White" BackgroundColor="Black"/>
 
             <Label Text="Ver 1.0" FontSize="20" TextColor="White"
                    HorizontalTextAlignment="Center"
