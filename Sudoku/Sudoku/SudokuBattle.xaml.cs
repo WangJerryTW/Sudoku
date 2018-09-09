@@ -26,7 +26,7 @@ namespace Sudoku
         {
             ClearAllGridText(); //---清掉所有數字
             string[] array = {
-                "" , "3", "", "8", "9", "2", "", "6", "1",
+                "" , "3", "", "8", "4", "2", "", "6", "1",
                 "" , "4", "2", "6", "1", "5", "3", "", "",
                 "" , "", "6", "7", "9", "3", "8", "", "4",
                 "7" , "2", "5", "4", "3", "", "", "", "9",
@@ -232,7 +232,28 @@ namespace Sudoku
                     ClearFocusStates(); //---清除focus狀態
                 }
             }
+            
+            //-----判斷是否已經結束? 比對機制 --把目前值讀成陣列再與解答陣列compare  相等的話，就跳出WIN的字樣
+            
 
+
+        }
+
+        bool Is_Game_End = false;
+        bool Is_Game_NotEnd = false;
+        bool IsGameEnd()
+        {
+            if (Is_Game_End == true && Is_Game_NoError == true) return true;
+
+            return false;
+        }
+
+        bool Is_Game_Error = false;
+        bool Is_Game_NoError = false;
+        bool IsGameGetError()
+        {
+            //if((lb_1x1.Text || lb_1x2.Text) == true)
+            return false;
         }
 
 
@@ -609,6 +630,98 @@ namespace Sudoku
 
         }
 
+        private void RestartGame_Clicked(object sender, EventArgs e)
+        {
+            if (lb_1x1.TextColor != Color.Blue) lb_1x1.Text = "";
+            if (lb_1x2.TextColor != Color.Blue) lb_1x2.Text = "";
+            if (lb_1x3.TextColor != Color.Blue) lb_1x3.Text = "";
+            if (lb_1x4.TextColor != Color.Blue) lb_1x4.Text = "";
+            if (lb_1x5.TextColor != Color.Blue) lb_1x5.Text = "";
+            if (lb_1x6.TextColor != Color.Blue) lb_1x6.Text = "";
+            if (lb_1x7.TextColor != Color.Blue) lb_1x7.Text = "";
+            if (lb_1x8.TextColor != Color.Blue) lb_1x8.Text = "";
+            if (lb_1x9.TextColor != Color.Blue) lb_1x9.Text = "";
+
+            if (lb_2x1.TextColor != Color.Blue) lb_2x1.Text = "";
+            if (lb_2x2.TextColor != Color.Blue) lb_2x2.Text = "";
+            if (lb_2x3.TextColor != Color.Blue) lb_2x3.Text = "";
+            if (lb_2x4.TextColor != Color.Blue) lb_2x4.Text = "";
+            if (lb_2x5.TextColor != Color.Blue) lb_2x5.Text = "";
+            if (lb_2x6.TextColor != Color.Blue) lb_2x6.Text = "";
+            if (lb_2x7.TextColor != Color.Blue) lb_2x7.Text = "";
+            if (lb_2x8.TextColor != Color.Blue) lb_2x8.Text = "";
+            if (lb_2x9.TextColor != Color.Blue) lb_2x9.Text = "";
+
+            if (lb_3x1.TextColor != Color.Blue) lb_3x1.Text = "";
+            if (lb_3x2.TextColor != Color.Blue) lb_3x2.Text = "";
+            if (lb_3x3.TextColor != Color.Blue) lb_3x3.Text = "";
+            if (lb_3x4.TextColor != Color.Blue) lb_3x4.Text = "";
+            if (lb_3x5.TextColor != Color.Blue) lb_3x5.Text = "";
+            if (lb_3x6.TextColor != Color.Blue) lb_3x6.Text = "";
+            if (lb_3x7.TextColor != Color.Blue) lb_3x7.Text = "";
+            if (lb_3x8.TextColor != Color.Blue) lb_3x8.Text = "";
+            if (lb_3x9.TextColor != Color.Blue) lb_3x9.Text = "";
+
+            if (lb_4x1.TextColor != Color.Blue) lb_4x1.Text = "";
+            if (lb_4x2.TextColor != Color.Blue) lb_4x2.Text = "";
+            if (lb_4x3.TextColor != Color.Blue) lb_4x3.Text = "";
+            if (lb_4x4.TextColor != Color.Blue) lb_4x4.Text = "";
+            if (lb_4x5.TextColor != Color.Blue) lb_4x5.Text = "";
+            if (lb_4x6.TextColor != Color.Blue) lb_4x6.Text = "";
+            if (lb_4x7.TextColor != Color.Blue) lb_4x7.Text = "";
+            if (lb_4x8.TextColor != Color.Blue) lb_4x8.Text = "";
+            if (lb_4x9.TextColor != Color.Blue) lb_4x9.Text = "";
+
+            if (lb_5x1.TextColor != Color.Blue) lb_5x1.Text = "";
+            if (lb_5x2.TextColor != Color.Blue) lb_5x2.Text = "";
+            if (lb_5x3.TextColor != Color.Blue) lb_5x3.Text = "";
+            if (lb_5x4.TextColor != Color.Blue) lb_5x4.Text = "";
+            if (lb_5x5.TextColor != Color.Blue) lb_5x5.Text = "";
+            if (lb_5x6.TextColor != Color.Blue) lb_5x6.Text = "";
+            if (lb_5x7.TextColor != Color.Blue) lb_5x7.Text = "";
+            if (lb_5x8.TextColor != Color.Blue) lb_5x8.Text = "";
+            if (lb_5x9.TextColor != Color.Blue) lb_5x9.Text = "";
+
+            if (lb_6x1.TextColor != Color.Blue) lb_6x1.Text = "";
+            if (lb_6x2.TextColor != Color.Blue) lb_6x2.Text = "";
+            if (lb_6x3.TextColor != Color.Blue) lb_6x3.Text = "";
+            if (lb_6x4.TextColor != Color.Blue) lb_6x4.Text = "";
+            if (lb_6x5.TextColor != Color.Blue) lb_6x5.Text = "";
+            if (lb_6x6.TextColor != Color.Blue) lb_6x6.Text = "";
+            if (lb_6x7.TextColor != Color.Blue) lb_6x7.Text = "";
+            if (lb_6x8.TextColor != Color.Blue) lb_6x8.Text = "";
+            if (lb_6x9.TextColor != Color.Blue) lb_6x9.Text = "";
+
+            if (lb_7x1.TextColor != Color.Blue) lb_7x1.Text = "";
+            if (lb_7x2.TextColor != Color.Blue) lb_7x2.Text = "";
+            if (lb_7x3.TextColor != Color.Blue) lb_7x3.Text = "";
+            if (lb_7x4.TextColor != Color.Blue) lb_7x4.Text = "";
+            if (lb_7x5.TextColor != Color.Blue) lb_7x5.Text = "";
+            if (lb_7x6.TextColor != Color.Blue) lb_7x6.Text = "";
+            if (lb_7x7.TextColor != Color.Blue) lb_7x7.Text = "";
+            if (lb_7x8.TextColor != Color.Blue) lb_7x8.Text = "";
+            if (lb_7x9.TextColor != Color.Blue) lb_7x9.Text = "";
+
+            if (lb_8x1.TextColor != Color.Blue) lb_8x1.Text = "";
+            if (lb_8x2.TextColor != Color.Blue) lb_8x2.Text = "";
+            if (lb_8x3.TextColor != Color.Blue) lb_8x3.Text = "";
+            if (lb_8x4.TextColor != Color.Blue) lb_8x4.Text = "";
+            if (lb_8x5.TextColor != Color.Blue) lb_8x5.Text = "";
+            if (lb_8x6.TextColor != Color.Blue) lb_8x6.Text = "";
+            if (lb_8x7.TextColor != Color.Blue) lb_8x7.Text = "";
+            if (lb_8x8.TextColor != Color.Blue) lb_8x8.Text = "";
+            if (lb_8x9.TextColor != Color.Blue) lb_8x9.Text = "";
+
+            if (lb_9x1.TextColor != Color.Blue) lb_9x1.Text = "";
+            if (lb_9x2.TextColor != Color.Blue) lb_9x2.Text = "";
+            if (lb_9x3.TextColor != Color.Blue) lb_9x3.Text = "";
+            if (lb_9x4.TextColor != Color.Blue) lb_9x4.Text = "";
+            if (lb_9x5.TextColor != Color.Blue) lb_9x5.Text = "";
+            if (lb_9x6.TextColor != Color.Blue) lb_9x6.Text = "";
+            if (lb_9x7.TextColor != Color.Blue) lb_9x7.Text = "";
+            if (lb_9x8.TextColor != Color.Blue) lb_9x8.Text = "";
+            if (lb_9x9.TextColor != Color.Blue) lb_9x9.Text = "";
+        }
 
     }
 }
