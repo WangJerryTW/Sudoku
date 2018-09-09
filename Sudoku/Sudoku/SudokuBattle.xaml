@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#354242"
+             x:Class="Sudoku.SudokuBattle">
+    <ContentPage.Content>
+        <Grid 
+              x:Name="MyGrid"
+              Margin="20" 
+              ColumnSpacing="3"
+              RowSpacing="3">
+            <!--表格定義內縮20 格線距離定義Row3 Column3-->
+            
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- 第0排Grid-->
+            <Label Text="第一關" FontSize ="30" TextColor="White" 
+                   Grid.Row="0"  Grid.ColumnSpan="10" 
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   />
+            <!--#region 第一排Grid -->
+            <Label Text="1" BackgroundColor="Silver" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black" 
+                   Grid.Row="1" Grid.Column="0"
+                                      x:Name="lb_1x1"/>
+            <Label Text="2" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="1"
+                                      x:Name="lb_1x2"/>
+            <Label Text="3" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="2"
+                                      x:Name="lb_1x3"/>
+            <Label Text="1" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="3"
+                                      x:Name="lb_1x4"/>
+            <Label Text="2" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="4"
+                                      x:Name="lb_1x5"/>
+            <Label Text="3" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="5"
+                                      x:Name="lb_1x6"/>
+            <Label Text="1" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="6"
+                                      x:Name="lb_1x7"/>
+            <Label Text="2" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="7"
+                                      x:Name="lb_1x8"/>
+            <Label Text="3" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="1" Grid.Column="8"
+                                      x:Name="lb_1x9"/>
+            <!--#endregion-->
+            <!--#region 第二排Grid -->
+            <Label Text="4" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="0"
+                                      x:Name="lb_2x1"/>
+            <Label Text="5" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="1"
+                                      x:Name="lb_2x2"/>
+            <Label Text="6" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="2"
+                                      x:Name="lb_2x3"/>
+            <Label Text="4" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="3"
+                                      x:Name="lb_2x4"/>
+            <Label Text="5" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="4"
+                                      x:Name="lb_2x5"/>
+            <Label Text="6" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="5"
+                                      x:Name="lb_2x6"/>
+            <Label Text="4" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="6"
+                                      x:Name="lb_2x7"/>
+            <Label Text="5" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="7"
+                                      x:Name="lb_2x8"/>
+            <Label Text="6" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="2" Grid.Column="8"
+                                      x:Name="lb_2x9"/>
+            <!--#endregion-->
+            <!--#region 第三排Grid -->
+            <Label Text="7" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="0"
+                                      x:Name="lb_3x1"/>
+            <Label Text="8" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="1"
+                                      x:Name="lb_3x2"/>
+            <Label Text="9" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="2"
+                                      x:Name="lb_3x3"/>
+            <Label Text="7" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="3"
+                                      x:Name="lb_3x4"/>
+            <Label Text="8" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="4"
+                                      x:Name="lb_3x5"/>
+            <Label Text="9" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="5"
+                                      x:Name="lb_3x6"/>
+            <Label Text="7" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="6"
+                                      x:Name="lb_3x7"/>
+            <Label Text="8" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="7"
+                                      x:Name="lb_3x8"/>
+            <Label Text="9" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="3" Grid.Column="8"
+                                      x:Name="lb_3x9"/>
+            <!--#endregion-->
+
+            <!--#region 第四排Grid -->
+            <Label Text="1" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="0"
+                                      x:Name="lb_4x1"/>
+            <Label Text="2" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="1"
+                                      x:Name="lb_4x2"/>
+            <Label Text="3" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="2"
+                                      x:Name="lb_4x3"/>
+            <Label Text="1" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="3"
+                                      x:Name="lb_4x4"/>
+            <Label Text="2" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="4"
+                                      x:Name="lb_4x5"/>
+            <Label Text="3" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="5"
+                                      x:Name="lb_4x6"/>
+            <Label Text="1" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="6"
+                                      x:Name="lb_4x7"/>
+            <Label Text="2" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="7"
+                                      x:Name="lb_4x8"/>
+            <Label Text="3" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="4" Grid.Column="8"
+                                      x:Name="lb_4x9"/>
+            <!--#endregion-->
+            <!--#region 第五排Grid -->
+            <Label Text="4" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="0"
+                                      x:Name="lb_5x1"/>
+            <Label Text="5" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="1"
+                                      x:Name="lb_5x2"/>
+            <Label Text="6" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="2"
+                                      x:Name="lb_5x3"/>
+            <Label Text="4" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="3"
+                                      x:Name="lb_5x4"/>
+            <Label Text="5" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="4"
+                                      x:Name="lb_5x5"/>
+            <Label Text="6" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="5"
+                                      x:Name="lb_5x6"/>
+            <Label Text="4" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="6"
+                                      x:Name="lb_5x7"/>
+            <Label Text="5" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="7"
+                                      x:Name="lb_5x8"/>
+            <Label Text="6" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="5" Grid.Column="8"
+                                      x:Name="lb_5x9"/>
+            <!--#endregion-->
+            <!--#region 第六排Grid -->
+            <Label Text="7" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="0"
+                                      x:Name="lb_6x1"/>
+            <Label Text="8" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="1"
+                                      x:Name="lb_6x2"/>
+            <Label Text="9" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="2"
+                                      x:Name="lb_6x3"/>
+            <Label Text="7" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="3"
+                                      x:Name="lb_6x4"/>
+            <Label Text="8" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="4"
+                                      x:Name="lb_6x5"/>
+            <Label Text="9" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="5"
+                                      x:Name="lb_6x6"/>
+            <Label Text="7" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="6"
+                                      x:Name="lb_6x7"/>
+            <Label Text="8" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="7"
+                                      x:Name="lb_6x8"/>
+            <Label Text="9" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="6" Grid.Column="8"
+                                      x:Name="lb_6x9"/>
+            <!--#endregion-->
+
+            <!--#region 第七排Grid -->
+            <Label Text="1" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="0"
+                                      x:Name="lb_7x1"/>
+            <Label Text="2" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="1"
+                                      x:Name="lb_7x2"/>
+            <Label Text="3" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="2"
+                                      x:Name="lb_7x3"/>
+            <Label Text="1" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="3"
+                                      x:Name="lb_7x4"/>
+            <Label Text="2" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="4"
+                                      x:Name="lb_7x5"/>
+            <Label Text="3" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="5"
+                                      x:Name="lb_7x6"/>
+            <Label Text="1" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="6"
+                                      x:Name="lb_7x7"/>
+            <Label Text="2" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="7"
+                                      x:Name="lb_7x8"/>
+            <Label Text="3" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="7" Grid.Column="8"
+                                      x:Name="lb_7x9"/>
+            <!--#endregion-->
+            <!--#region 第八排Grid -->
+            <Label Text="4" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="0"
+                                      x:Name="lb_8x1"/>
+            <Label Text="5" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="1"
+                                      x:Name="lb_8x2"/>
+            <Label Text="6" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="2"
+                                      x:Name="lb_8x3"/>
+            <Label Text="4" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="3"
+                                      x:Name="lb_8x4"/>
+            <Label Text="5" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="4"
+                                      x:Name="lb_8x5"/>
+            <Label Text="6" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="5"
+                                      x:Name="lb_8x6"/>
+            <Label Text="4" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="6"
+                                      x:Name="lb_8x7"/>
+            <Label Text="5" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="7"
+                                      x:Name="lb_8x8"/>
+            <Label Text="6" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                            FontSize="Default" TextColor="Black"
+                            Grid.Row="8" Grid.Column="8"
+                                      x:Name="lb_8x9"/>
+            <!--#endregion-->
+            <!--#region 第九排Grid -->
+            <Label Text="7" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="0"
+                                      x:Name="lb_9x1"/>
+            <Label Text="8" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="1"
+                                      x:Name="lb_9x2"/>
+            <Label Text="9" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="2"
+                                      x:Name="lb_9x3"/>
+            <Label Text="7" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="3"
+                                      x:Name="lb_9x4"/>
+            <Label Text="8" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="4"
+                                      x:Name="lb_9x5"/>
+            <Label Text="9" BackgroundColor="White"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="5"
+                                      x:Name="lb_9x6"/>
+            <Label Text="7" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="6"
+                                      x:Name="lb_9x7"/>
+            <Label Text="8" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="7"
+                                      x:Name="lb_9x8"/>
+            <Label Text="9" BackgroundColor="Silver"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                        FontSize="Default" TextColor="Black"
+                        Grid.Row="9" Grid.Column="8"
+                                      x:Name="lb_9x9"/>
+            <!--#endregion-->
+
+            <Label Text="Timing:" FontSize ="20" TextColor="White" 
+                   Grid.Row="10"   
+                   Grid.ColumnSpan="9"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   />
+
+
+            <!--第11排Grid-->
+            <Button Text="重新開始" FontSize ="10" TextColor="Black" 
+                   Grid.Row="11"                     Grid.Column="0"  
+                   Grid.ColumnSpan="3" 
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   />
+            <Button Text="儲存進度" FontSize ="10" TextColor="Black" 
+                   Grid.Row="11"                     Grid.Column="1"  
+                   Grid.ColumnSpan="6"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                    Clicked="SaveReturn_Clicked"
+                   />
+            <!--第12排Grid-->
+            <!--#region 第12排Grid -->
+
+            <Label Text="1" FontSize ="Default"  TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="0"
+                    BackgroundColor="White"
+                   
+                   HeightRequest="40"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus1"
+                   />
+            <!-- 圓形物件寫法  BorderRadius="20" HeightRequest="40" WidthRequest="40"-->
+            <Label Text="2" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="1"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus2"
+                   />
+            <Label Text="3" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="2"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus3"
+                   />
+            <Label Text="4" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="3"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus4"
+                   />
+            <Label Text="5" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="4"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus5"
+                   />
+            <Label Text="6" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="5"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus6"
+                   />
+            <Label Text="7" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="6"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus7"
+                   />
+            <Label Text="8" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="7"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus8"
+                   />
+            <Label Text="9" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="8"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus9"
+                   />
+            <Label Text="c" FontSize ="Default" TextColor="Black" 
+                   Grid.Row="12"   Grid.Column="9"
+                    BackgroundColor="White"
+                    
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   x:Name="lb_Focus_c"
+                   />
+            <!--#endregion-->
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
