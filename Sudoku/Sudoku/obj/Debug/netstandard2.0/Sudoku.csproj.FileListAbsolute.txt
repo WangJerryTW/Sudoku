@@ -11,3 +11,4 @@ c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\Sudoku.csprojAssemblyReference.cache
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\SudokuBattle.xaml.g.cs
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku\obj\Debug\netstandard2.0\VictoryPage.xaml.g.cs

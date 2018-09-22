@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Aqua"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com" 
+             x:Class="Sudoku.VictoryPage">
+    
+    <!--版面控制-->
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Spacing="20">
+            <Image x:Name="GoGO"></Image>
+            <Label Text="Game Clear!!" FontSize="30" TextColor="White"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="總花費時間:(尚未完成，缺少來自上個頁面的參數)"  TextColor="White" BackgroundColor="Black" />
+            <Button Text="挑戰其他關"  TextColor="White" BackgroundColor="Black" Clicked="FightOtherStage_Clicked"/>
+            <Button Text="回到主選單"  TextColor="White" BackgroundColor="Black" Clicked="BackToMenu_Clicked" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
