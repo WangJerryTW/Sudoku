@@ -19,11 +19,12 @@ namespace Sudoku
 
             lblFocusClickFunc();//---load focus label事件
 
-            LoadStage(); //---load預設關卡
+            LoadStage(new Random().Next(1, 4)); //---load預設關卡
         }
 
-        public void LoadStage()
+        public void LoadStage(int stageNumber)
         {
+            //stageNumber = 4;
             ClearAllGridText(); //---清掉所有數字
             string[] array = {
                 "" , "3", "", "8", "4", "2", "", "6", "1",
@@ -36,7 +37,62 @@ namespace Sudoku
                 "4" , "6", "", "", "8", "", "", "", "5",
                 "" , "8", "", "2", "", "4", "6", "1", ""
             };
-            ReadGame(array);
+            string[] array2 =
+            {
+                "" , "4", "1", "5", "7", "", "", "", "2",
+                "" , "7", "", "", "8", "", "", "1", "4",
+                "6" , "", "", "", "", "1", "", "9", "",
+                "2" , "", "3", "8", "", "7", "5", "", "",
+                "" , "", "8", "3", "", "", "6", "", "",
+                "" , "", "5", "", "6", "", "9", "", "3",
+                "" , "2", "", "9", "", "", "", "", "8",
+                "8" , "5", "", "", "4", "", "", "3", "",
+                "9" , "", "", "", "2", "8", "1", "5", ""
+            };
+            string[] array3 =
+            {
+                "3" , "7", "2", "4", "", "9", "", "1", "",
+                "" , "", "", "3", "", "5", "", "", "",
+                "6" , "", "", "8", "1", "2", "", "", "3",
+                "" , "6", "7", "", "8", "", "9", "4", "",
+                "" , "", "", "5", "4", "6", "", "", "",
+                "1" , "4", "3", "", "", "", "5", "6", "8",
+                "" , "", "5", "", "", "", "4", "", "",
+                "8" , "3", "", "7", "2", "4", "", "5", "9",
+                "4" , "1", "9", "", "", "", "2", "3", "7"
+            };
+            string[] array4 =
+            {
+                "4" , "", "3", "7", "", "1", "9", "5", "",
+                "2" , "1", "", "", "9", "", "4", "", "3",
+                "" , "", "9", "4", "", "3", "", "7", "1",
+                "6" , "8", "", "9", "7", "", "1", "", "4",
+                "" , "4", "5", "", "1", "8", "", "9", "",
+                "9" , "", "1", "3", "6", "", "8", "2", "",
+                "7" , "9", "", "1", "", "2", "", "6", "",
+                "" , "3", "6", "", "4", "", "2", "1", "9",
+                "1" , "", "8", "", "5", "", "3", "", "7"
+            };
+            switch (stageNumber)
+            {
+                case 1:
+                    StageLabel.Text = "關卡代號: 1 ";
+                    ReadGame(array);
+                    break;
+                case 2:
+                    StageLabel.Text = "關卡代號: 2 ";
+                    ReadGame(array2);
+                    break;
+                case 3:
+                    StageLabel.Text = "關卡代號: 3 ";
+                    ReadGame(array3);
+                    break;
+                case 4:
+                    StageLabel.Text = "關卡代號: 4 ";
+                    ReadGame(array4);
+                    break;
+            }
+
         }
 
         void lblFocusClickFunc()
@@ -205,6 +261,7 @@ namespace Sudoku
             LoadBasicPanelColor();  //--設定基礎版面配色
 
 
+
             //----取得那個label在Grid的哪個位置
             int Row = Grid.GetRow(lbl);
             int Column = Grid.GetColumn(lbl);
@@ -221,6 +278,12 @@ namespace Sudoku
                 }
             lbl.BackgroundColor = Color.Orange;
 
+            //-----判斷是否已經結束? 比對機制 --把目前值讀成陣列再與解答陣列compare  相等的話，就跳出WIN的字樣
+            IsRuleCorrect();
+            SetErrorColor();
+
+
+
             //---塞入規則，字體藍字不能修改或塞入，不是Focus狀態不得修改
             if (lbl.TextColor == Color.Blue) return;
             else
@@ -232,24 +295,413 @@ namespace Sudoku
                     ClearFocusStates(); //---清除focus狀態
                 }
             }
-            
+
             //-----判斷是否已經結束? 比對機制 --把目前值讀成陣列再與解答陣列compare  相等的話，就跳出WIN的字樣
-            
+            IsRuleCorrect();
+            SetErrorColor();
+
+            if (IsGameEnd() == true) GoVictoryPage();
 
 
         }
-
-        bool Is_Game_End = false;
-        bool Is_Game_NotEnd = false;
-        bool IsGameEnd()
+        bool Is_All_TextFilled()
         {
-            if (Is_Game_End == true && Is_Game_NoError == true) return true;
+            if (lb_1x1.Text != "" && lb_1x2.Text != "" && lb_1x3.Text != "" && lb_1x4.Text != "" &&
+                lb_1x5.Text != "" && lb_1x6.Text != "" && lb_1x7.Text != "" && lb_1x8.Text != "" && lb_1x9.Text != "" &&
+                lb_2x1.Text != "" && lb_2x2.Text != "" && lb_2x3.Text != "" && lb_2x4.Text != "" &&
+                lb_2x5.Text != "" && lb_2x6.Text != "" && lb_2x7.Text != "" && lb_2x8.Text != "" && lb_2x9.Text != "" &&
+                lb_3x1.Text != "" && lb_3x2.Text != "" && lb_3x3.Text != "" && lb_3x4.Text != "" &&
+                lb_3x5.Text != "" && lb_3x6.Text != "" && lb_3x7.Text != "" && lb_3x8.Text != "" && lb_3x9.Text != "" &&
+                lb_4x1.Text != "" && lb_4x2.Text != "" && lb_4x3.Text != "" && lb_4x4.Text != "" &&
+                lb_4x5.Text != "" && lb_4x6.Text != "" && lb_4x7.Text != "" && lb_4x8.Text != "" && lb_4x9.Text != "" &&
+                lb_5x1.Text != "" && lb_5x2.Text != "" && lb_5x3.Text != "" && lb_5x4.Text != "" &&
+                lb_5x5.Text != "" && lb_5x6.Text != "" && lb_5x7.Text != "" && lb_5x8.Text != "" && lb_5x9.Text != "" &&
+                lb_6x1.Text != "" && lb_6x2.Text != "" && lb_6x3.Text != "" && lb_6x4.Text != "" &&
+                lb_6x5.Text != "" && lb_6x6.Text != "" && lb_6x7.Text != "" && lb_6x8.Text != "" && lb_6x9.Text != "" &&
+                lb_7x1.Text != "" && lb_7x2.Text != "" && lb_7x3.Text != "" && lb_7x4.Text != "" &&
+                lb_7x5.Text != "" && lb_7x6.Text != "" && lb_7x7.Text != "" && lb_7x8.Text != "" && lb_7x9.Text != "" &&
+                lb_8x1.Text != "" && lb_8x2.Text != "" && lb_8x3.Text != "" && lb_8x4.Text != "" &&
+                lb_8x5.Text != "" && lb_8x6.Text != "" && lb_8x7.Text != "" && lb_8x8.Text != "" && lb_8x9.Text != "" &&
+                lb_9x1.Text != "" && lb_9x2.Text != "" && lb_9x3.Text != "" && lb_9x4.Text != "" &&
+                lb_9x5.Text != "" && lb_9x6.Text != "" && lb_9x7.Text != "" && lb_9x8.Text != "" && lb_9x9.Text != "")
+                return true;
+            else
+                return false;
+        }
+
+        bool IsRuleCorrect()
+        {
+            for (int i = 0; i < 81; i++) ResultArray[i] = false;
+            GetNowArray();
+            bool[] array = new bool[9];
+            //--0~8數字不能有一樣
+            //--rule1: row1
+            IsNumHaveRepeat(NowArray[0], NowArray[1], NowArray[2], NowArray[3], NowArray[4], NowArray[5], NowArray[6], NowArray[7], NowArray[8], ref array);
+            SetIndexError(0, 1, 2, 3, 4, 5, 6, 7, 8, array);
+            //--rule2: row2
+            IsNumHaveRepeat(NowArray[9], NowArray[10], NowArray[11], NowArray[12], NowArray[13], NowArray[14], NowArray[15], NowArray[16], NowArray[17], ref array);
+            SetIndexError(9, 10, 11, 12, 13, 14, 15, 16, 17, array);
+            //--rule3: row3
+            IsNumHaveRepeat(NowArray[18], NowArray[19], NowArray[20], NowArray[21], NowArray[22], NowArray[23], NowArray[24], NowArray[25], NowArray[26], ref array);
+            SetIndexError(18, 19, 20, 21, 22, 23, 24, 25, 26, array);
+            //--rule4: row4
+            IsNumHaveRepeat(NowArray[27], NowArray[28], NowArray[29], NowArray[30], NowArray[31], NowArray[32], NowArray[33], NowArray[34], NowArray[35], ref array);
+            SetIndexError(27, 28, 29, 30, 31, 32, 33, 34, 35, array);
+            //--rule5: row5
+            IsNumHaveRepeat(NowArray[36], NowArray[37], NowArray[38], NowArray[39], NowArray[40], NowArray[41], NowArray[42], NowArray[43], NowArray[44], ref array);
+            SetIndexError(36, 37, 38, 39, 40, 41, 42, 43, 44, array);
+            //--rule6: row6
+            IsNumHaveRepeat(NowArray[45], NowArray[46], NowArray[47], NowArray[48], NowArray[49], NowArray[50], NowArray[51], NowArray[52], NowArray[53], ref array);
+            SetIndexError(45, 46, 47, 48, 49, 50, 51, 52, 53, array);
+            //--rule7: row7
+            IsNumHaveRepeat(NowArray[54], NowArray[55], NowArray[56], NowArray[57], NowArray[58], NowArray[59], NowArray[60], NowArray[61], NowArray[62], ref array);
+            SetIndexError(54, 55, 56, 57, 58, 59, 60, 61, 62, array);
+            //--rule8: row8
+            IsNumHaveRepeat(NowArray[63], NowArray[64], NowArray[65], NowArray[66], NowArray[67], NowArray[68], NowArray[69], NowArray[70], NowArray[71], ref array);
+            SetIndexError(63, 64, 65, 66, 67, 68, 69, 70, 71, array);
+            //--rule9: row9
+            IsNumHaveRepeat(NowArray[72], NowArray[73], NowArray[74], NowArray[75], NowArray[76], NowArray[77], NowArray[78], NowArray[79], NowArray[80], ref array);
+            SetIndexError(72, 73, 74, 75, 76, 77, 78, 79, 80, array);
+
+            //--rule10: column1
+            IsNumHaveRepeat(NowArray[0], NowArray[9], NowArray[18], NowArray[27], NowArray[36], NowArray[45], NowArray[54], NowArray[63], NowArray[72], ref array);
+            SetIndexError(0, 9, 18, 27, 36, 45, 54, 63, 72, array);
+            //--rule11: column2
+            IsNumHaveRepeat(NowArray[1], NowArray[10], NowArray[19], NowArray[28], NowArray[37], NowArray[46], NowArray[55], NowArray[64], NowArray[73], ref array);
+            SetIndexError(1, 10, 19, 28, 37, 46, 55, 64, 73, array);
+            //--rule12: column3
+            IsNumHaveRepeat(NowArray[2], NowArray[11], NowArray[20], NowArray[29], NowArray[38], NowArray[47], NowArray[56], NowArray[65], NowArray[74], ref array);
+            SetIndexError(2, 11, 20, 29, 38, 47, 56, 65, 74, array);
+            //--rule13: column4
+            IsNumHaveRepeat(NowArray[3], NowArray[12], NowArray[21], NowArray[30], NowArray[39], NowArray[48], NowArray[57], NowArray[66], NowArray[75], ref array);
+            SetIndexError(3, 12, 21, 30, 39, 48, 57, 66, 75, array);
+            //--rule14: column5
+            IsNumHaveRepeat(NowArray[4], NowArray[13], NowArray[22], NowArray[31], NowArray[40], NowArray[49], NowArray[58], NowArray[67], NowArray[76], ref array);
+            SetIndexError(4, 13, 22, 31, 40, 49, 58, 67, 76, array);
+            //--rule15: column6
+            IsNumHaveRepeat(NowArray[5], NowArray[14], NowArray[23], NowArray[32], NowArray[41], NowArray[50], NowArray[59], NowArray[68], NowArray[77], ref array);
+            SetIndexError(5, 14, 23, 32, 41, 50, 59, 68, 77, array);
+            //--rule16: column7
+            IsNumHaveRepeat(NowArray[6], NowArray[15], NowArray[24], NowArray[33], NowArray[42], NowArray[51], NowArray[60], NowArray[69], NowArray[78], ref array);
+            SetIndexError(6, 15, 24, 33, 42, 51, 60, 69, 78, array);
+            //--rule17: column8
+            IsNumHaveRepeat(NowArray[7], NowArray[16], NowArray[25], NowArray[34], NowArray[43], NowArray[52], NowArray[61], NowArray[70], NowArray[79], ref array);
+            SetIndexError(7, 16, 25, 34, 43, 52, 61, 70, 79, array);
+            //--rule18: column9
+            IsNumHaveRepeat(NowArray[8], NowArray[17], NowArray[26], NowArray[35], NowArray[44], NowArray[53], NowArray[62], NowArray[71], NowArray[80], ref array);
+            SetIndexError(8, 17, 26, 35, 44, 53, 62, 71, 80, array);
+
+            //--rule19: square1
+            IsNumHaveRepeat(NowArray[0], NowArray[1], NowArray[2], NowArray[9], NowArray[10], NowArray[11], NowArray[18], NowArray[19], NowArray[20], ref array);
+            SetIndexError(0, 1, 2, 9, 10, 11, 18, 19, 20, array);
+            //--rule20: square2
+            IsNumHaveRepeat(NowArray[3], NowArray[4], NowArray[5], NowArray[12], NowArray[13], NowArray[14], NowArray[21], NowArray[22], NowArray[23], ref array);
+            SetIndexError(3, 4, 5, 12, 13, 14, 21, 22, 23, array);
+            //--rule21: square3
+            IsNumHaveRepeat(NowArray[6], NowArray[7], NowArray[8], NowArray[15], NowArray[16], NowArray[17], NowArray[24], NowArray[25], NowArray[26], ref array);
+            SetIndexError(6, 7, 8, 15, 16, 17, 24, 25, 26, array);
+
+            //--rule22: square4
+            IsNumHaveRepeat(NowArray[27], NowArray[28], NowArray[29], NowArray[36], NowArray[37], NowArray[38], NowArray[45], NowArray[46], NowArray[47], ref array);
+            SetIndexError(27, 28, 29, 36, 37, 38, 45, 46, 47, array);
+            //--rule23: square5
+            IsNumHaveRepeat(NowArray[30], NowArray[31], NowArray[32], NowArray[39], NowArray[40], NowArray[41], NowArray[48], NowArray[49], NowArray[50], ref array);
+            SetIndexError(30, 31, 32, 39, 40, 41, 48, 49, 50, array);
+            //--rule24: square6
+            IsNumHaveRepeat(NowArray[33], NowArray[34], NowArray[35], NowArray[42], NowArray[43], NowArray[44], NowArray[51], NowArray[52], NowArray[53], ref array);
+            SetIndexError(33, 34, 35, 42, 43, 44, 51, 52, 53, array);
+
+            //--rule25: square7
+            IsNumHaveRepeat(NowArray[54], NowArray[55], NowArray[56], NowArray[63], NowArray[64], NowArray[65], NowArray[72], NowArray[73], NowArray[74], ref array);
+            SetIndexError(54, 55, 56, 63, 64, 65, 72, 73, 74, array);
+            //--rule26: square8
+            IsNumHaveRepeat(NowArray[57], NowArray[58], NowArray[59], NowArray[66], NowArray[67], NowArray[68], NowArray[75], NowArray[76], NowArray[77], ref array);
+            SetIndexError(57, 58, 59, 66, 67, 68, 75, 76, 77, array);
+            //--rule27: square9
+            IsNumHaveRepeat(NowArray[60], NowArray[61], NowArray[62], NowArray[69], NowArray[70], NowArray[71], NowArray[78], NowArray[79], NowArray[80], ref array);
+            SetIndexError(60, 61, 62, 69, 70, 71, 78, 79, 80, array);
+
 
             return false;
         }
+        
+        void SetErrorColor()
+        {
+            if (ResultArray[0] == true)  lb_1x1.BackgroundColor = Color.Red; 
+            if (ResultArray[1] == true) lb_1x2.BackgroundColor = Color.Red;
+            if (ResultArray[2] == true)  lb_1x3.BackgroundColor = Color.Red;
+            if (ResultArray[3] == true)  lb_1x4.BackgroundColor = Color.Red; 
+            if (ResultArray[4] == true) lb_1x5.BackgroundColor = Color.Red;
+            if (ResultArray[5] == true) lb_1x6.BackgroundColor = Color.Red;
+            if (ResultArray[6] == true) lb_1x7.BackgroundColor = Color.Red;
+            if (ResultArray[7] == true) lb_1x8.BackgroundColor = Color.Red;
+            if (ResultArray[8] == true) lb_1x9.BackgroundColor = Color.Red;
 
-        bool Is_Game_Error = false;
-        bool Is_Game_NoError = false;
+            if (ResultArray[9] == true) lb_2x1.BackgroundColor = Color.Red;
+            if (ResultArray[10] == true) lb_2x2.BackgroundColor = Color.Red;
+            if (ResultArray[11] == true) lb_2x3.BackgroundColor = Color.Red;
+            if (ResultArray[12] == true) lb_2x4.BackgroundColor = Color.Red;
+            if (ResultArray[13] == true) lb_2x5.BackgroundColor = Color.Red;
+            if (ResultArray[14] == true) lb_2x6.BackgroundColor = Color.Red;
+            if (ResultArray[15] == true) lb_2x7.BackgroundColor = Color.Red;
+            if (ResultArray[16] == true) lb_2x8.BackgroundColor = Color.Red;
+            if (ResultArray[17] == true) lb_2x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[18] == true) lb_3x1.BackgroundColor = Color.Red;
+            if (ResultArray[19] == true) lb_3x2.BackgroundColor = Color.Red;
+            if (ResultArray[20] == true) lb_3x3.BackgroundColor = Color.Red;
+            if (ResultArray[21] == true) lb_3x4.BackgroundColor = Color.Red;
+            if (ResultArray[22] == true) lb_3x5.BackgroundColor = Color.Red;
+            if (ResultArray[23] == true) lb_3x6.BackgroundColor = Color.Red;
+            if (ResultArray[24] == true) lb_3x7.BackgroundColor = Color.Red;
+            if (ResultArray[25] == true) lb_3x8.BackgroundColor = Color.Red;
+            if (ResultArray[26] == true) lb_3x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[27] == true) lb_4x1.BackgroundColor = Color.Red;
+            if (ResultArray[28] == true) lb_4x2.BackgroundColor = Color.Red;
+            if (ResultArray[29] == true) lb_4x3.BackgroundColor = Color.Red;
+            if (ResultArray[30] == true) lb_4x4.BackgroundColor = Color.Red;
+            if (ResultArray[31] == true) lb_4x5.BackgroundColor = Color.Red;
+            if (ResultArray[32] == true) lb_4x6.BackgroundColor = Color.Red;
+            if (ResultArray[33] == true) lb_4x7.BackgroundColor = Color.Red;
+            if (ResultArray[34] == true) lb_4x8.BackgroundColor = Color.Red;
+            if (ResultArray[35] == true) lb_4x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[36] == true) lb_5x1.BackgroundColor = Color.Red;
+            if (ResultArray[37] == true) lb_5x2.BackgroundColor = Color.Red;
+            if (ResultArray[38] == true) lb_5x3.BackgroundColor = Color.Red;
+            if (ResultArray[39] == true) lb_5x4.BackgroundColor = Color.Red;
+            if (ResultArray[40] == true) lb_5x5.BackgroundColor = Color.Red;
+            if (ResultArray[41] == true) lb_5x6.BackgroundColor = Color.Red;
+            if (ResultArray[42] == true) lb_5x7.BackgroundColor = Color.Red;
+            if (ResultArray[43] == true) lb_5x8.BackgroundColor = Color.Red;
+            if (ResultArray[44] == true) lb_5x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[45] == true) lb_6x1.BackgroundColor = Color.Red;
+            if (ResultArray[46] == true) lb_6x2.BackgroundColor = Color.Red;
+            if (ResultArray[47] == true) lb_6x3.BackgroundColor = Color.Red;
+            if (ResultArray[48] == true) lb_6x4.BackgroundColor = Color.Red;
+            if (ResultArray[49] == true) lb_6x5.BackgroundColor = Color.Red;
+            if (ResultArray[50] == true) lb_6x6.BackgroundColor = Color.Red;
+            if (ResultArray[51] == true) lb_6x7.BackgroundColor = Color.Red;
+            if (ResultArray[52] == true) lb_6x8.BackgroundColor = Color.Red;
+            if (ResultArray[53] == true) lb_6x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[54] == true) lb_7x1.BackgroundColor = Color.Red;
+            if (ResultArray[55] == true) lb_7x2.BackgroundColor = Color.Red;
+            if (ResultArray[56] == true) lb_7x3.BackgroundColor = Color.Red;
+            if (ResultArray[57] == true) lb_7x4.BackgroundColor = Color.Red;
+            if (ResultArray[58] == true) lb_7x5.BackgroundColor = Color.Red;
+            if (ResultArray[59] == true) lb_7x6.BackgroundColor = Color.Red;
+            if (ResultArray[60] == true) lb_7x7.BackgroundColor = Color.Red;
+            if (ResultArray[61] == true) lb_7x8.BackgroundColor = Color.Red;
+            if (ResultArray[62] == true) lb_7x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[63] == true) lb_8x1.BackgroundColor = Color.Red;
+            if (ResultArray[64] == true) lb_8x2.BackgroundColor = Color.Red;
+            if (ResultArray[65] == true) lb_8x3.BackgroundColor = Color.Red;
+            if (ResultArray[66] == true) lb_8x4.BackgroundColor = Color.Red;
+            if (ResultArray[67] == true) lb_8x5.BackgroundColor = Color.Red;
+            if (ResultArray[68] == true) lb_8x6.BackgroundColor = Color.Red;
+            if (ResultArray[69] == true) lb_8x7.BackgroundColor = Color.Red;
+            if (ResultArray[70] == true) lb_8x8.BackgroundColor = Color.Red;
+            if (ResultArray[71] == true) lb_8x9.BackgroundColor = Color.Red;
+
+            if (ResultArray[72] == true) lb_9x1.BackgroundColor = Color.Red;
+            if (ResultArray[73] == true) lb_9x2.BackgroundColor = Color.Red;
+            if (ResultArray[74] == true) lb_9x3.BackgroundColor = Color.Red;
+            if (ResultArray[75] == true) lb_9x4.BackgroundColor = Color.Red;
+            if (ResultArray[76] == true) lb_9x5.BackgroundColor = Color.Red;
+            if (ResultArray[77] == true) lb_9x6.BackgroundColor = Color.Red;
+            if (ResultArray[78] == true) lb_9x7.BackgroundColor = Color.Red;
+            if (ResultArray[79] == true) lb_9x8.BackgroundColor = Color.Red;
+            if (ResultArray[80] == true) lb_9x9.BackgroundColor = Color.Red;
+        }
+
+        void GoVictoryPage()
+        {
+            Application.Current.MainPage = new VictoryPage();
+        }
+
+        void IsNumHaveRepeat(string num1, string num2, string num3, string num4, string num5,
+    string num6, string num7, string num8, string num9, ref bool[] array)
+        {
+            array = new bool[9];
+            //前處理
+            if (string.IsNullOrEmpty(num1)) num1 = "0";
+            if (string.IsNullOrEmpty(num2)) num2 = "0";
+            if (string.IsNullOrEmpty(num3)) num3 = "0";
+            if (string.IsNullOrEmpty(num4)) num4 = "0";
+            if (string.IsNullOrEmpty(num5)) num5 = "0";
+            if (string.IsNullOrEmpty(num6)) num6 = "0";
+            if (string.IsNullOrEmpty(num7)) num7 = "0";
+            if (string.IsNullOrEmpty(num8)) num8 = "0";
+            if (string.IsNullOrEmpty(num9)) num9 = "0";
+
+            int[] array1 = {
+                               int.Parse(num1),
+                               int.Parse(num2),
+                               int.Parse(num3),
+                               int.Parse(num4),
+                               int.Parse(num5),
+                               int.Parse(num6),
+                               int.Parse(num7),
+                               int.Parse(num8),
+                               int.Parse(num9)
+                           };
+            var dict1 = new Dictionary<int, int>();
+
+            foreach (var value in array1)
+            {
+                if (dict1.ContainsKey(value))
+                    dict1[value]++;
+                else
+                    dict1[value] = 1;
+            }
+
+            foreach (var pair in dict1)
+            {
+                if (pair.Value > 1)
+                {
+                    if (pair.Key == 0) continue; //---排除0的結果
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (array[i] == true) continue; //---這邊的目的是為了保留true的結果
+
+                        if (array1[i] == pair.Key) array[i] = true;
+                        else array[i] = false;
+                    }
+                }
+            }
+        }
+        void SetIndexError(int index1,int index2,int index3,int index4,int index5,
+            int index6,int index7,int index8,int index9, bool[] array)
+        {
+            //----有true的情況，就不填入false了.....
+            if (ResultArray[index1] != true) ResultArray[index1] = array[0];
+            if (ResultArray[index2] != true) ResultArray[index2] = array[1];
+            if (ResultArray[index3] != true) ResultArray[index3] = array[2];
+            if (ResultArray[index4] != true) ResultArray[index4] = array[3];
+            if (ResultArray[index5] != true) ResultArray[index5] = array[4];
+            if (ResultArray[index6] != true) ResultArray[index6] = array[5];
+            if (ResultArray[index7] != true) ResultArray[index7] = array[6];
+            if (ResultArray[index8] != true) ResultArray[index8] = array[7];
+            if (ResultArray[index9] != true) ResultArray[index9] = array[8];
+        }
+        
+        void GetNowArray()
+        {
+            NowArray[0] = lb_1x1.Text;
+            NowArray[1] = lb_1x2.Text;
+            NowArray[2] = lb_1x3.Text;
+            NowArray[3] = lb_1x4.Text;
+            NowArray[4] = lb_1x5.Text;
+            NowArray[5] = lb_1x6.Text;
+            NowArray[6] = lb_1x7.Text;
+            NowArray[7] = lb_1x8.Text;
+            NowArray[8] = lb_1x9.Text;
+
+            NowArray[9] = lb_2x1.Text;
+            NowArray[10] = lb_2x2.Text;
+            NowArray[11] = lb_2x3.Text;
+            NowArray[12] = lb_2x4.Text;
+            NowArray[13] = lb_2x5.Text;
+            NowArray[14] = lb_2x6.Text;
+            NowArray[15] = lb_2x7.Text;
+            NowArray[16] = lb_2x8.Text;
+            NowArray[17] = lb_2x9.Text;
+            
+            NowArray[18] = lb_3x1.Text;
+            NowArray[19] = lb_3x2.Text;
+            NowArray[20] = lb_3x3.Text;
+            NowArray[21] = lb_3x4.Text;
+            NowArray[22] = lb_3x5.Text;
+            NowArray[23] = lb_3x6.Text;
+            NowArray[24] = lb_3x7.Text;
+            NowArray[25] = lb_3x8.Text;
+            NowArray[26] = lb_3x9.Text;
+
+            NowArray[27] = lb_4x1.Text;
+            NowArray[28] = lb_4x2.Text;
+            NowArray[29] = lb_4x3.Text;
+            NowArray[30] = lb_4x4.Text;
+            NowArray[31] = lb_4x5.Text;
+            NowArray[32] = lb_4x6.Text;
+            NowArray[33] = lb_4x7.Text;
+            NowArray[34] = lb_4x8.Text;
+            NowArray[35] = lb_4x9.Text;
+
+            NowArray[36] = lb_5x1.Text;
+            NowArray[37] = lb_5x2.Text;
+            NowArray[38] = lb_5x3.Text;
+            NowArray[39] = lb_5x4.Text;
+            NowArray[40] = lb_5x5.Text;
+            NowArray[41] = lb_5x6.Text;
+            NowArray[42] = lb_5x7.Text;
+            NowArray[43] = lb_5x8.Text;
+            NowArray[44] = lb_5x9.Text;
+
+            NowArray[45] = lb_6x1.Text;
+            NowArray[46] = lb_6x2.Text;
+            NowArray[47] = lb_6x3.Text;
+            NowArray[48] = lb_6x4.Text;
+            NowArray[49] = lb_6x5.Text;
+            NowArray[50] = lb_6x6.Text;
+            NowArray[51] = lb_6x7.Text;
+            NowArray[52] = lb_6x8.Text;
+            NowArray[53] = lb_6x9.Text;
+
+            NowArray[54] = lb_7x1.Text;
+            NowArray[55] = lb_7x2.Text;
+            NowArray[56] = lb_7x3.Text;
+            NowArray[57] = lb_7x4.Text;
+            NowArray[58] = lb_7x5.Text;
+            NowArray[59] = lb_7x6.Text;
+            NowArray[60] = lb_7x7.Text;
+            NowArray[61] = lb_7x8.Text;
+            NowArray[62] = lb_7x9.Text;
+
+            NowArray[63] = lb_8x1.Text;
+            NowArray[64] = lb_8x2.Text;
+            NowArray[65] = lb_8x3.Text;
+            NowArray[66] = lb_8x4.Text;
+            NowArray[67] = lb_8x5.Text;
+            NowArray[68] = lb_8x6.Text;
+            NowArray[69] = lb_8x7.Text;
+            NowArray[70] = lb_8x8.Text;
+            NowArray[71] = lb_8x9.Text;
+
+            NowArray[72] = lb_9x1.Text;
+            NowArray[73] = lb_9x2.Text;
+            NowArray[74] = lb_9x3.Text;
+            NowArray[75] = lb_9x4.Text;
+            NowArray[76] = lb_9x5.Text;
+            NowArray[77] = lb_9x6.Text;
+            NowArray[78] = lb_9x7.Text;
+            NowArray[79] = lb_9x8.Text;
+            NowArray[80] = lb_9x9.Text;
+        }
+
+
+        string[] NowArray = new string[81];
+        bool[] ResultArray = new bool[81];
+
+        bool IsGameEnd()
+        {
+            //---判斷ResultArray是否裡面都沒有0
+            for(int i = 0;i<81;i++)
+            {
+                if (string.IsNullOrEmpty(NowArray[i])) return false;
+            }
+            //---判斷沒有錯誤
+            for( int j = 0; j < 81; j++)
+            {
+                if(ResultArray[j] == true) return false;
+            }
+
+            return true;
+        }
+        
         bool IsGameGetError()
         {
             //if((lb_1x1.Text || lb_1x2.Text) == true)

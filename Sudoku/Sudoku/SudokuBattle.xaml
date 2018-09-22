@@ -7,8 +7,8 @@
         <Grid 
               x:Name="MyGrid"
               Margin="20" 
-              ColumnSpacing="3"
-              RowSpacing="3">
+              ColumnSpacing="1"
+              RowSpacing="1">
             <!--表格定義內縮20 格線距離定義Row3 Column3-->
             
             
@@ -47,7 +47,7 @@
             </Grid.ColumnDefinitions>
             
             <!-- 第0排Grid-->
-            <Label Text="第一關" FontSize ="30" TextColor="White" 
+            <Label   x:Name="StageLabel" Text="關卡代號: 1 " FontSize ="30" TextColor="White" 
                    Grid.Row="0"  Grid.ColumnSpan="10" 
                    HorizontalOptions="Center" VerticalOptions="Center"
                    />
