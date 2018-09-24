@@ -1,7 +1,5 @@
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Android.dll
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Android.pdb
-c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\com.companyname.Sudoku.apk
-c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\com.companyname.Sudoku-Signed.apk
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.dll
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.pdb
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\Sudoku.Android.csprojAssemblyReference.cache
@@ -10,7 +8,6 @@ c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\XamlC.stamp
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\Sudoku.Android.csproj.CopyComplete
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\Sudoku.Android.dll
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\Sudoku.Android.pdb
-c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\bin\com.companyname.Sudoku.apk
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\res\layout\tabbar.xml
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\res\layout\toolbar.xml
 c:\users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\res\values\styles.xml
@@ -98,6 +95,9 @@ C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets\System.Xml.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Sudoku.apk
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Sudoku-Signed.apk
+C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\android\bin\Sudoku.Sudoku.apk
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\bin\Debug\Sudoku.Android.dll
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\Sudoku.pdb
 C:\Users\acer\source\repos\Sudoku\Sudoku\Sudoku.Android\obj\Debug\linksrc\Sudoku.Android.dll.mdb
