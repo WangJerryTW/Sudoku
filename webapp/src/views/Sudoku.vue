@@ -42,7 +42,7 @@ export default {
       select_grid_item:[],
       second:0,
       timer:[],
-      time_compute:true
+      time_compute:false
     }
   },
   async created () {
@@ -52,7 +52,6 @@ export default {
     for(var i=1;i<=9;i++){
       this.select_number.push({type:'not-active-select',number:i})
     }
-    this.start_time()
   },
   methods:{
       clicktd (item) {
@@ -60,6 +59,10 @@ export default {
           this.initsn()
           this.select_grid_item = item
           this.check_grid(item)
+          if(!this.time_compute){
+            this.start_time()
+            this.time_compute = true
+          }
       },
       select (item) {
         if(item.type==='not-active-select')return
@@ -67,7 +70,7 @@ export default {
         this.check_grid(this.select_grid_item)
         if(this.check_finish()){
           this.controll_time()
-          alert('好啦好啦很厲害啦')
+          alert('好啦好啦很厲害啦！\n一共花了'+this.second+'秒。')
         }
       },
       clean () {
@@ -77,6 +80,9 @@ export default {
         this.change_number(0)
       },
       restart () {
+        this.second = 0
+        this.time_compute = false
+        clearInterval(this.timer)
         this.inittd(2)
       },
       inittd(type){
