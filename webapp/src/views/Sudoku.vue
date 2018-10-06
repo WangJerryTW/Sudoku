@@ -78,6 +78,8 @@ export default {
       },
       clean_num () {
         this.change_number(0)
+        this.initsn()
+        this.check_grid(this.select_grid_item)
       },
       restart () {
         this.second = 0
@@ -182,8 +184,6 @@ export default {
           for(var j in this.sudo.row[i]){
             if(this.sudo.row[i][j].grid_number==0){
               return false
-            }else{
-              
             }
           }
         }
