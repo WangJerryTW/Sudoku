@@ -4,7 +4,7 @@
     <div style="text-align:center"><router-link to="admin/">後台管理</router-link></div>
     <ul>
         <li v-for="item in sudo" :key="item.id">
-            <router-link :to="'sudoku/'+item.id">{{ item.id }}</router-link>
+            <router-link :to="'sudoku/'+item.id">{{ item.id }}</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
             <span v-if="item.tag==1">very easy</span>
             <span v-else-if="item.tag==2">easy</span>
             <span v-else-if="item.tag==3">medium</span>

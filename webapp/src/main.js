@@ -8,6 +8,7 @@ import VueAxios from 'vue-axios'
  
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = 'https://api.pureday.life'
+axios.defaults.withCredentials=true
 
 Vue.config.productionTip = false
 

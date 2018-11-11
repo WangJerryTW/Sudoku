@@ -5,16 +5,20 @@
     
     <div style="text-align:center" v-if="!login">
         <br>
+        輸入帳號：<input type="text" v-model="user"><br><br>
         輸入密碼：<input type="password" v-model="password">
-        &nbsp;&nbsp;
-        <button v-on:click="submit()">確認</button>
+        <br><br>
+        <center>
+          <button v-on:click="submit()">確認</button>
+        </center>
     </div>
     
     <div v-else>
+        <br>
         <div style="font-size:22px;font-weight:bold;">
-            <a href="#!" @click="add">新增數獨</a>
+            <a href="#" @click="add">新增數獨</a>
             &nbsp;&nbsp;
-            <a href="#!" @click="logout">登出</a>
+            <a href="#" @click="logout">登出</a>
         </div>
         <div v-if="mode=='list'">
             <ul>
@@ -26,9 +30,9 @@
                     <span v-else-if="item.tag==4">hard</span>
                     <span v-else-if="item.tag==5">very hard</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#!" @click="edit(item.id)">編輯</a>
+                    <a href="#" @click="edit(item.id)">編輯</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#!" @click="del(item.id)">刪除</a>
+                    <a href="#" @click="del(item.id)">刪除</a>
                 </li>
             </ul>
         </div>
@@ -72,6 +76,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       login:false,
+      user:'',
       password: '',
       mode: 'list',
       sudolist:[],
@@ -83,6 +88,14 @@ export default {
     }
   },
   created () {
+    var that = this
+    this.axios.get('http://api.pureday.life/login/').then(function(res){
+      console.log(res)
+      if(!res.data)this.login = res.data
+      else if(res.data.login) {
+        that.login = res.data.login
+      }
+    })
     this.axios.get('http://api.pureday.life/sudo/')
       .then(response => (this.sudolist = response.data))
     var self = this
@@ -115,14 +128,39 @@ export default {
         this.check_grid(this.select_grid_item)
       },
       submit () {
-          if( this.password === '1234'){
-              this.login = true
-          }else{
-              alert('密碼錯誤')
+        var that = this
+        this.axios({
+            method: 'post',
+            url: 'login/',
+            data: {account:this.user,password:this.password},
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8',
+            },
+        }).then(function (res) {
+          console.log(res)
+          if(!res.data){
+            alert('登入失敗')
+          } else if(res.data.login) {
+            that.login = true
           }
+        })
       },
       logout () {
-          this.login = false
+        var that = this
+        this.axios({
+            method: 'post',
+            url: 'login/',
+            data: {action:"logout"},
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8',
+            },
+        }).then(function (res) {
+          console.log(res)
+          if(res.data){
+            alert('登出成功')
+            that.login = false
+          }
+        })
       },
       add () {
         this.mode = 'add'
