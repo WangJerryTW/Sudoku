@@ -18,6 +18,7 @@
           <td v-for="item in select_number" :key="item.id" :class="[item.type,'qcolor']" @click="select(item)">{{ item.number }}</td>
         </tr>
       </table>
+      <br>
       <table>
         <tr>
           <td class="active-select" @click="clean_num()">清除數字</td>
@@ -251,5 +252,11 @@ export default {
   table, th, td {
     padding:10px 12px;
     border: 4px solid #354242;
+  }
+  @media (max-width: 576px) { 
+    table, th, td {
+      padding:5px 8px;
+      border: 2px solid #354242;
+    }
   }
 </style>
