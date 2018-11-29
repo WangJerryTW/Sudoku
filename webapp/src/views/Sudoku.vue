@@ -68,6 +68,7 @@ export default {
       select (item) {
         if(item.type==='not-active-select')return
         this.change_number(item.number)
+        this.initsn()
         this.check_grid(this.select_grid_item)
         if(this.check_finish()){
           this.controll_time()

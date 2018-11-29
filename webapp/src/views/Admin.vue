@@ -90,7 +90,6 @@ export default {
   created () {
     var that = this
     this.axios.get('http://api.pureday.life/login/').then(function(res){
-      console.log(res)
       if(!res.data)this.login = res.data
       else if(res.data.login) {
         that.login = res.data.login
@@ -119,6 +118,7 @@ export default {
       },
       select (item) {
           if(item.type==='not-active-select')return
+          //this.initsn()
           this.change_number(item.number)
           this.check_grid(this.select_grid_item)
       },
@@ -137,7 +137,6 @@ export default {
               'Content-Type': 'text/plain;charset=utf-8',
             },
         }).then(function (res) {
-          console.log(res)
           if(!res.data){
             alert('登入失敗')
           } else if(res.data.login) {
@@ -155,7 +154,6 @@ export default {
               'Content-Type': 'text/plain;charset=utf-8',
             },
         }).then(function (res) {
-          console.log(res)
           if(res.data){
             alert('登出成功')
             that.login = false
