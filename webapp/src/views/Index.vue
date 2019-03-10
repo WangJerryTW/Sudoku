@@ -2,10 +2,6 @@
   <div class="row justify-content-center">
     <div class="col col-md-6 col-12">
       <h1 class="text-center">數獨遊戲</h1>
-      <div class="text-center">
-        <a href='http://www.pureday.life/'>純生活網</a>,
-        <router-link to="admin/">後台管理</router-link>
-      </div>
       <ul>
           <li v-for="item in sudo" :key="item.id">
               <router-link :to="'sudoku/'+item.id">{{ item.id }}</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
