@@ -28,6 +28,10 @@
       </table>
       使用時間：{{ second }}&nbsp;&nbsp;&nbsp;&nbsp;<button @click="controll_time()">{{ time_compute?'暫停':'繼續' }}</button>
     </center>
+    <hr>
+    <div class="text-center">
+      <router-link to="/admin/">後台管理</router-link> | Copyright © 2018 <a href="https://www.pureday.life/">純生活網</a>
+    </div>
   </div>
 </template>
 

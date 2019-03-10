@@ -66,6 +66,10 @@
             </center>
         </div>
     </div>
+    <hr>
+    <div class="text-center">
+      <router-link to="/admin/">後台管理</router-link> | Copyright © 2018 <a href="https://www.pureday.life/">純生活網</a>
+    </div>
   </div>
 </template>
 
